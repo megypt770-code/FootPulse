@@ -1,3 +1,4 @@
+
 name: Build FootPulse APK from ZIP
 
 on:
@@ -15,6 +16,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 40
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -25,10 +27,10 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - - name: Set up Android SDK
-  uses: android-actions/setup-android@v3
-  with:
-    packages: platform-tools
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
 
       - name: Install Android SDK packages
         run: sdkmanager --install 'platforms;android-34' 'build-tools;35.0.0'
